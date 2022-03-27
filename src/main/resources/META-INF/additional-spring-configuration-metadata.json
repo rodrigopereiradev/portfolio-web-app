@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "twitter.api.key",
+      "type": "java.lang.String",
+      "description": "Description for twitter.api.key."
+  }
+] }
