@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/api/v1/portfolios")
 @RequiredArgsConstructor
@@ -23,7 +25,7 @@ public class PortfolioRestController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Void> update(@RequestBody PortfolioDTO portfolioDTO, @PathVariable Integer id) {
+    public ResponseEntity<Void> update(@Valid @RequestBody PortfolioDTO portfolioDTO, @PathVariable Integer id) {
         portfolioDTO.setId(id);
         var portfolio = mapper.fromDTO(portfolioDTO);
         useCase.update(portfolio);

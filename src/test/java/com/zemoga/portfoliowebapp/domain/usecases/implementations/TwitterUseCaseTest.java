@@ -2,7 +2,6 @@ package com.zemoga.portfoliowebapp.domain.usecases.implementations;
 
 import com.zemoga.portfoliowebapp.domain.models.Twitter;
 import com.zemoga.portfoliowebapp.domain.ports.TwitterOutPort;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
