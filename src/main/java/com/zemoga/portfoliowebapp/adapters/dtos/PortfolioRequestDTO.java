@@ -3,7 +3,6 @@ package com.zemoga.portfoliowebapp.adapters.dtos;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 @Builder

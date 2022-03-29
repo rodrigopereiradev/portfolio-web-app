@@ -3,7 +3,6 @@ package com.zemoga.portfoliowebapp.adapters.rest;
 import com.zemoga.portfoliowebapp.adapters.dtos.PortfolioDTO;
 import com.zemoga.portfoliowebapp.adapters.dtos.PortfolioRequestDTO;
 import com.zemoga.portfoliowebapp.adapters.mappers.PortfolioMapper;
-import com.zemoga.portfoliowebapp.domain.models.Portfolio;
 import com.zemoga.portfoliowebapp.domain.usecases.IPortfolioUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
