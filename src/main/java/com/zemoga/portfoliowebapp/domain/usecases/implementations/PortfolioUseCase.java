@@ -7,6 +7,7 @@ import com.zemoga.portfoliowebapp.domain.usecases.IPortfolioUseCase;
 import com.zemoga.portfoliowebapp.domain.usecases.ITwitterUseCase;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
 import java.util.Objects;
 
 @RequiredArgsConstructor
@@ -38,6 +39,11 @@ public class PortfolioUseCase implements IPortfolioUseCase {
 
         portfolioOutPort.save(portfolio);
 
+    }
+
+    @Override
+    public List<Portfolio> findAll() {
+        return portfolioOutPort.findAll();
     }
 
 }

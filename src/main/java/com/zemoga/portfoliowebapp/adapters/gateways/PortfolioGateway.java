@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -30,5 +32,11 @@ public class PortfolioGateway implements PortfolioOutPort {
     public void save(Portfolio portfolio) {
         var portifolioEntity = mapper.toEntity(portfolio);
         repository.save(portifolioEntity);
+    }
+
+    @Override
+    public List<Portfolio> findAll() {
+        var portfoliosEntities = repository.findAll();
+        return portfoliosEntities.stream().map(mapper::fromEntity).collect(Collectors.toList());
     }
 }

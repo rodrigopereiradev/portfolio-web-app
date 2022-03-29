@@ -11,10 +11,10 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.Collections;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -64,6 +64,19 @@ class PortfolioGatewayTest {
 
         verify(repository).save(portfolioEntity);
 
+    }
+
+    @Test
+    void shouldBringAtListOnePortfolioWhenSearchingAll() {
+
+        var portfolio = Portfolio.builder().id(1).build();
+        var portfolioEntity = PortfolioEntity.builder().id(1).build();
+        when(repository.findAll()).thenReturn(Collections.singletonList(portfolioEntity));
+        when(mapper.fromEntity(portfolioEntity)).thenReturn(portfolio);
+
+        var portfolios = gateway.findAll();
+
+        assertFalse(portfolios.isEmpty());
     }
 
 }

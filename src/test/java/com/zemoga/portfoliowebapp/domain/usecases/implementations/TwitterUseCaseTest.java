@@ -42,4 +42,5 @@ class TwitterUseCaseTest {
         assertTrue(twitters.isEmpty());
 
     }
+
 }

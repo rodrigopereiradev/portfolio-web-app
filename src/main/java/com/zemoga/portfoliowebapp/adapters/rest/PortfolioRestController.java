@@ -1,13 +1,17 @@
 package com.zemoga.portfoliowebapp.adapters.rest;
 
 import com.zemoga.portfoliowebapp.adapters.dtos.PortfolioDTO;
+import com.zemoga.portfoliowebapp.adapters.dtos.PortfolioRequestDTO;
 import com.zemoga.portfoliowebapp.adapters.mappers.PortfolioMapper;
+import com.zemoga.portfoliowebapp.domain.models.Portfolio;
 import com.zemoga.portfoliowebapp.domain.usecases.IPortfolioUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/api/v1/portfolios")
@@ -25,13 +29,19 @@ public class PortfolioRestController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Void> update(@Valid @RequestBody PortfolioDTO portfolioDTO, @PathVariable Integer id) {
-        portfolioDTO.setId(id);
-        var portfolio = mapper.fromDTO(portfolioDTO);
+    public ResponseEntity<Void> update(@Valid @RequestBody PortfolioRequestDTO portfolioRequestDTO, @PathVariable Integer id) {
+        portfolioRequestDTO.setId(id);
+        var portfolio = mapper.fromDTO(portfolioRequestDTO);
         useCase.update(portfolio);
 
         return ResponseEntity.ok().build();
 
+    }
+
+    @GetMapping
+    public ResponseEntity<List<PortfolioDTO>> findAll() {
+        var portfolios = useCase.findAll();
+        return ResponseEntity.ok(portfolios.stream().map(mapper::toDTO).collect(Collectors.toList()));
     }
 
 }

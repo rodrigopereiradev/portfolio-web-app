@@ -1,6 +1,6 @@
 package com.zemoga.portfoliowebapp.adapters.rest.handlers;
 
-import com.zemoga.portfoliowebapp.adapters.dtos.ErrorDTO;
+import com.zemoga.portfoliowebapp.adapters.dtos.ErrorResponseDTO;
 import com.zemoga.portfoliowebapp.domain.exceptions.PortfolioNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +19,8 @@ import java.util.stream.Collectors;
 public class GlobalControllerExceptionHandler {
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorDTO> unknownExceptionHandle(Exception ex) {
-        var error = new ErrorDTO(
+    public ResponseEntity<ErrorResponseDTO> unknownExceptionHandle(Exception ex) {
+        var error = new ErrorResponseDTO(
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
                 HttpStatus.INTERNAL_SERVER_ERROR.name(),
                 ex.getMessage()
@@ -29,8 +29,8 @@ public class GlobalControllerExceptionHandler {
     }
 
     @ExceptionHandler(PortfolioNotFoundException.class)
-    public ResponseEntity<ErrorDTO> productExceptionHandle(PortfolioNotFoundException ex) {
-        var error = new ErrorDTO(
+    public ResponseEntity<ErrorResponseDTO> productExceptionHandle(PortfolioNotFoundException ex) {
+        var error = new ErrorResponseDTO(
                 HttpStatus.BAD_REQUEST.value(),
                 HttpStatus.BAD_REQUEST.name(),
                 ex.getMessage()
@@ -39,8 +39,8 @@ public class GlobalControllerExceptionHandler {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorDTO> methodArgumentNotValidExceptionHandle(MethodArgumentNotValidException ex) {
-        var error = new ErrorDTO(
+    public ResponseEntity<ErrorResponseDTO> methodArgumentNotValidExceptionHandle(MethodArgumentNotValidException ex) {
+        var error = new ErrorResponseDTO(
                 HttpStatus.BAD_REQUEST.value(),
                 HttpStatus.BAD_REQUEST.name(),
                 getValidationErrorsMessages(ex.getBindingResult())
@@ -49,8 +49,8 @@ public class GlobalControllerExceptionHandler {
     }
 
     @ExceptionHandler(EntityNotFoundException.class)
-    public ResponseEntity<ErrorDTO> entityNotFoundExceptionHandle(EntityNotFoundException ex) {
-        var error = new ErrorDTO(
+    public ResponseEntity<ErrorResponseDTO> entityNotFoundExceptionHandle(EntityNotFoundException ex) {
+        var error = new ErrorResponseDTO(
                 HttpStatus.BAD_REQUEST.value(),
                 HttpStatus.BAD_REQUEST.name(),
                 ex.getMessage()

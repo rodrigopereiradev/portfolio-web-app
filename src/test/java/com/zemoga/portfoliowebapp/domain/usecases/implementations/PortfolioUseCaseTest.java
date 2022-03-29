@@ -111,6 +111,16 @@ class PortfolioUseCaseTest {
 
     }
 
+    @Test
+    void shouldBringAtListOnePortfolioWhenSearchingAll() {
+
+        when(portfolioOutPort.findAll()).thenReturn(Collections.singletonList(Portfolio.builder().build()));
+
+        var portfolios = portfolioUseCase.findAll();
+
+        assertFalse(portfolios.isEmpty());
+    }
+
     private Portfolio buildPortfolioWithNewInfo() {
         return Portfolio.builder()
                 .id(1)

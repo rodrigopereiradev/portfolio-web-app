@@ -13,7 +13,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ErrorDTO {
+public class ErrorResponseDTO {
 
     private Integer statusCode;
     private String statusName;
@@ -24,13 +24,13 @@ public class ErrorDTO {
     @JsonInclude(Include.NON_NULL)
     private List<String> descriptions;
 
-    public ErrorDTO(Integer statusCode, String statusName, String description) {
+    public ErrorResponseDTO(Integer statusCode, String statusName, String description) {
         this.statusCode = statusCode;
         this.statusName = statusName;
         this.description = description;
     }
 
-    public ErrorDTO(Integer statusCode, String statusName, List<String> descriptions) {
+    public ErrorResponseDTO(Integer statusCode, String statusName, List<String> descriptions) {
         this.statusCode = statusCode;
         this.statusName = statusName;
         this.descriptions = descriptions;

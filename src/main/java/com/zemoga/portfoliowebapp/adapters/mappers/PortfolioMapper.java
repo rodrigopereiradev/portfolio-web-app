@@ -1,6 +1,7 @@
 package com.zemoga.portfoliowebapp.adapters.mappers;
 
 import com.zemoga.portfoliowebapp.adapters.dtos.PortfolioDTO;
+import com.zemoga.portfoliowebapp.adapters.dtos.PortfolioRequestDTO;
 import com.zemoga.portfoliowebapp.adapters.jpa.entities.PortfolioEntity;
 import com.zemoga.portfoliowebapp.domain.models.Portfolio;
 import org.springframework.stereotype.Component;
@@ -33,15 +34,15 @@ public class PortfolioMapper {
                 .build();
     }
 
-    public Portfolio fromDTO(PortfolioDTO portfolioDTO) {
+    public Portfolio fromDTO(PortfolioRequestDTO portfolioRequestDTO) {
         return Portfolio.builder()
-                .id(portfolioDTO.getId())
-                .name(portfolioDTO.getName())
-                .lastName(portfolioDTO.getLastName())
-                .description(portfolioDTO.getDescription())
-                .experienceSummary(portfolioDTO.getExperienceSummary())
-                .imageUrl(portfolioDTO.getImageUrl())
-                .twitterUserId(portfolioDTO.getTwitterUserId())
+                .id(portfolioRequestDTO.getId())
+                .name(portfolioRequestDTO.getName())
+                .lastName(portfolioRequestDTO.getLastName())
+                .description(portfolioRequestDTO.getDescription())
+                .experienceSummary(portfolioRequestDTO.getExperienceSummary())
+                .imageUrl(portfolioRequestDTO.getImageUrl())
+                .twitterUserId(portfolioRequestDTO.getTwitterUserId())
                 .build();
     }
 
