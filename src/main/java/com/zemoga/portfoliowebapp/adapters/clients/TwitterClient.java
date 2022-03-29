@@ -10,12 +10,6 @@ import java.util.Optional;
 @Component
 public class TwitterClient {
 
-    @Value(value = "${twitter.api.key}")
-    private String twitterApiKey;
-
-    @Value(value = "${twitter.api.secret.key}")
-    private String twitterApiSecretKey;
-
     @Value(value = "${twitter.max.timeline.result}")
     private String twitterTimelineMaxResult;
 
@@ -40,25 +34,4 @@ public class TwitterClient {
 
         return resp.blockOptional();
     }
-
-    private String getToken() {
-        var url = "https://api.twitter.com/oauth2/token";
-
-        var client = WebClient.builder().baseUrl(url).build();
-        var resp = client
-                .get()
-                .header("grant_type", "client_credentials")
-                .attribute("consumer_key", twitterApiKey)
-                .attribute("consumer_secret", twitterApiSecretKey)
-                .retrieve()
-                .bodyToMono(String.class);
-
-        if (resp.blockOptional().isEmpty()) {
-            return null;
-        }
-
-        return resp.block();
-
-    }
-
 }

@@ -1,6 +1,7 @@
 package com.zemoga.portfoliowebapp.adapters.rest.handlers;
 
 import com.zemoga.portfoliowebapp.adapters.dtos.ErrorResponseDTO;
+import com.zemoga.portfoliowebapp.domain.exceptions.PortfolioException;
 import com.zemoga.portfoliowebapp.domain.exceptions.PortfolioNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +19,8 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 public class GlobalControllerExceptionHandler {
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponseDTO> unknownExceptionHandle(Exception ex) {
+    @ExceptionHandler(PortfolioException.class)
+    public ResponseEntity<ErrorResponseDTO> portfolioExceptionHandle(Exception ex) {
         var error = new ErrorResponseDTO(
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
                 HttpStatus.INTERNAL_SERVER_ERROR.name(),

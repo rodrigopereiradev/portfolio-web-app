@@ -32,9 +32,7 @@ public class PortfolioRestController {
         portfolioRequestDTO.setId(id);
         var portfolio = mapper.fromDTO(portfolioRequestDTO);
         useCase.update(portfolio);
-
         return ResponseEntity.ok().build();
-
     }
 
     @GetMapping
