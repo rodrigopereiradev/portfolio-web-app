@@ -24,4 +24,8 @@ public class PortfolioDTO {
 
     private List<Twitter> twitters;
 
+    public String getCompleteName() {
+        return String.format("%s %s", name, lastName);
+    }
+
 }

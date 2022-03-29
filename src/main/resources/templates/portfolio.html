@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio Web App</title>
+</head>
+<body style="align-content: center; position: center">
+
+    <div>
+        <div style="align-content: center">
+            <img style="max-height: 100px; max-width: 100px" src="" th:src="@{${portfolio.imageUrl}}"  alt="portfolio image profile" />
+            <h1><span th:text="${portfolio.completeName}"></span></h1>
+        </div>
+
+        <div>
+            <h2>My work Experience</h2>
+            <p th:text="${portfolio.description}"></p>
+            <p th:text="${portfolio.experienceSummary}"></p>
+        </div>
+
+        <div>
+            <h2><span th:text="${portfolio.name}"></span>'s Timeline</h2>
+            <ul >
+                <li th:each="p : ${portfolio.twitters}" th:text="${p.text}"> Twitter Text</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
