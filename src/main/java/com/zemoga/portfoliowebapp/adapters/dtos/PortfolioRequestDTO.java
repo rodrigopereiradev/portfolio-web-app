@@ -25,8 +25,8 @@ public class PortfolioRequestDTO {
     @Size(max = 255, message = "The field description can not have more than 255 characters.")
     private String description;
 
-    @Size(max = 255, message = "The field experienceSummary can not have more than 255 characters.")
-    private String experienceSummary;
+    @Size(max = 255, message = "The field experience can not have more than 255 characters.")
+    private String experience;
 
     @Size(max = 255, message = "The field imageUrl can not have more than 255 characters.")
     private String imageUrl;

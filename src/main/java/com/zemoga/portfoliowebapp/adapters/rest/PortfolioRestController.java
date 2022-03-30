@@ -1,6 +1,6 @@
 package com.zemoga.portfoliowebapp.adapters.rest;
 
-import com.zemoga.portfoliowebapp.adapters.dtos.PortfolioDTO;
+import com.zemoga.portfoliowebapp.adapters.dtos.PortfolioResponseDTO;
 import com.zemoga.portfoliowebapp.adapters.dtos.PortfolioRequestDTO;
 import com.zemoga.portfoliowebapp.adapters.mappers.PortfolioMapper;
 import com.zemoga.portfoliowebapp.domain.usecases.IPortfolioUseCase;
@@ -21,7 +21,7 @@ public class PortfolioRestController {
     private final IPortfolioUseCase useCase;
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<PortfolioDTO> findById(@PathVariable Integer id) {
+    public ResponseEntity<PortfolioResponseDTO> findById(@PathVariable Integer id) {
         var portfolio = useCase.findById(id);
         var portfolioDTO = mapper.toDTO(portfolio);
         return ResponseEntity.ok(portfolioDTO);
@@ -36,7 +36,7 @@ public class PortfolioRestController {
     }
 
     @GetMapping
-    public ResponseEntity<List<PortfolioDTO>> findAll() {
+    public ResponseEntity<List<PortfolioResponseDTO>> findAll() {
         var portfolios = useCase.findAll();
         return ResponseEntity.ok(portfolios.stream().map(mapper::toDTO).collect(Collectors.toList()));
     }

@@ -1,6 +1,6 @@
 package com.zemoga.portfoliowebapp.adapters.mappers;
 
-import com.zemoga.portfoliowebapp.adapters.dtos.PortfolioDTO;
+import com.zemoga.portfoliowebapp.adapters.dtos.PortfolioResponseDTO;
 import com.zemoga.portfoliowebapp.adapters.dtos.PortfolioRequestDTO;
 import com.zemoga.portfoliowebapp.adapters.jpa.entities.PortfolioEntity;
 import com.zemoga.portfoliowebapp.domain.models.Portfolio;
@@ -15,19 +15,19 @@ public class PortfolioMapper {
                 .name(entity.getName())
                 .lastName(entity.getLastName())
                 .description(entity.getDescription())
-                .experienceSummary(entity.getExperienceSummary())
+                .experience(entity.getExperience())
                 .imageUrl(entity.getImageUrl())
                 .twitterUserId(entity.getTwitterUserId())
                 .build();
     }
 
-    public PortfolioDTO toDTO(Portfolio portfolio) {
-        return PortfolioDTO.builder()
+    public PortfolioResponseDTO toDTO(Portfolio portfolio) {
+        return PortfolioResponseDTO.builder()
                 .id(portfolio.getId())
                 .name(portfolio.getName())
                 .lastName(portfolio.getLastName())
                 .description(portfolio.getDescription())
-                .experienceSummary(portfolio.getExperienceSummary())
+                .experience(portfolio.getExperience())
                 .imageUrl(portfolio.getImageUrl())
                 .twitterUserId(portfolio.getTwitterUserId())
                 .twitters(portfolio.getTwitters())
@@ -40,7 +40,7 @@ public class PortfolioMapper {
                 .name(portfolioRequestDTO.getName())
                 .lastName(portfolioRequestDTO.getLastName())
                 .description(portfolioRequestDTO.getDescription())
-                .experienceSummary(portfolioRequestDTO.getExperienceSummary())
+                .experience(portfolioRequestDTO.getExperience())
                 .imageUrl(portfolioRequestDTO.getImageUrl())
                 .twitterUserId(portfolioRequestDTO.getTwitterUserId())
                 .build();
@@ -52,7 +52,7 @@ public class PortfolioMapper {
                 .name(portfolio.getName())
                 .lastName(portfolio.getLastName())
                 .description(portfolio.getDescription())
-                .experienceSummary(portfolio.getExperienceSummary())
+                .experience(portfolio.getExperience())
                 .imageUrl(portfolio.getImageUrl())
                 .twitterUserId(portfolio.getTwitterUserId())
                 .build();

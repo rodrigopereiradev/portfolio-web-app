@@ -34,8 +34,8 @@ public class PortfolioEntity implements Serializable {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "experience_summary")
-    private String experienceSummary;
+    @Column(name = "experience")
+    private String experience;
 
     @Column(name = "image_url")
     private String imageUrl;

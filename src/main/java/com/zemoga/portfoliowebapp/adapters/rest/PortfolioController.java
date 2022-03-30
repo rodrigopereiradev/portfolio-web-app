@@ -17,7 +17,7 @@ public class PortfolioController {
 
     @GetMapping(value = "/portfolio/{id}")
     public String findPortfolio(Model model, @PathVariable Integer id) {
-        var portfolio = useCase.findById(116);
+        var portfolio = useCase.findById(id);
         var dto = mapper.toDTO(portfolio);
         model.addAttribute("portfolio", dto);
         return "portfolio";

@@ -12,13 +12,13 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PortfolioDTO {
+public class PortfolioResponseDTO {
 
     private Integer id;
     private String name;
     private String lastName;
     private String description;
-    private String experienceSummary;
+    private String experience;
     private String imageUrl;
     private String twitterUserId;
 

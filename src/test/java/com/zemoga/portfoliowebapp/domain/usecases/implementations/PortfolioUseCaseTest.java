@@ -97,7 +97,7 @@ class PortfolioUseCaseTest {
 
         portfolioUseCase.update(portfolioWithNewInfo);
 
-        assertEquals("Test Update", portfolioToUpdate.getExperienceSummary());
+        assertEquals("Test Update", portfolioToUpdate.getExperience());
 
     }
 
@@ -127,7 +127,7 @@ class PortfolioUseCaseTest {
                 .name("Test Update")
                 .lastName("Test Update")
                 .description("Test Update")
-                .experienceSummary("Test Update")
+                .experience("Test Update")
                 .imageUrl("Test Update")
                 .build();
     }
@@ -138,7 +138,7 @@ class PortfolioUseCaseTest {
                 .name("Test")
                 .lastName("Test")
                 .description("Test")
-                .experienceSummary("Test")
+                .experience("Test")
                 .imageUrl("Test")
                 .build();
     }

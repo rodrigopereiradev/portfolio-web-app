@@ -18,7 +18,7 @@ public class Portfolio implements Serializable {
     private String name;
     private String lastName;
     private String description;
-    private String experienceSummary;
+    private String experience;
     private String imageUrl;
     private String twitterUserId;
     private List<Twitter> twitters;
@@ -34,7 +34,7 @@ public class Portfolio implements Serializable {
         this.name = portfolio.getName();
         this.lastName = portfolio.getLastName();
         this.description = portfolio.getDescription();
-        this.experienceSummary = portfolio.getExperienceSummary();
+        this.experience = portfolio.getExperience();
         this.imageUrl = portfolio.getImageUrl();
         this.twitterUserId = portfolio.getTwitterUserId();
     }
