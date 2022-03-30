@@ -22,6 +22,4 @@ public class BeanConfig {
         return new TwitterUseCase(twitterOutPort);
     }
 
-
-
 }

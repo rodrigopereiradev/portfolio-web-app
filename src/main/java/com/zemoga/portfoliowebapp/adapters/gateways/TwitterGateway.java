@@ -28,7 +28,7 @@ public class TwitterGateway implements TwitterOutPort {
 
             return twitterResponse.get().getData();
         } catch (Exception e) {
-            LOGGER.error("An error occurred while retrieving the Twitter timeline.", e.getCause());
+            LOGGER.error(String.format("An error occurred while retrieving the Twitter timeline. %s", e.getMessage()));
             return Collections.emptyList();
         }
 
