@@ -69,5 +69,4 @@ Swagger Ui and Spring Fox to create REST endpoints documentation.
 ```
 ### Development time
 
-Honestly, I didn't count how many hours I spent developing this application. I began to developer it on Saturday and finished it on Wednesday.
-So I took the weekend and three days working on it in some periods of the day.
+It was about 35 hours.
