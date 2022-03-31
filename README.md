@@ -1,6 +1,6 @@
 # portfolio-web-app
 
-This is a Java application developed using Spring Boot as framework.
+This is a Java application developed using Spring Boot that provides a web page to visualize portfolios and API endpoints to retrieve and modify them.
 
 ### Setting the application.properties
 
