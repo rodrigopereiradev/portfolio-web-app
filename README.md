@@ -63,6 +63,7 @@ This is a Spring application, so most of the libs used are from this framework.
 Spring Data to access SQL data.
 Spring WebFlux to do requests at Twitter API.
 JUnit and Mockito to do unit tests.
+Rest Assured (Spring Mock MVC) to controllers tests.
 Lombok Project to build methods getter, setters, builders, constructors, etc in compilation time.
 Swagger Ui and Spring Fox to create REST endpoints documentation.
 ```
